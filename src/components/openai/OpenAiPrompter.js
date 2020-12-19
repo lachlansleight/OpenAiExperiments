@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react'
 
 import ReactJson from 'react-json-view'
 import ReactMarkdown from 'react-markdown'
-import { css } from "@emotion/core";
 import GridLoader from "react-spinners/GridLoader";
 import axios from 'axios'
 
@@ -88,6 +87,11 @@ const OpenAiPrompter = ({config}) => {
             if(!window.confirm(`Warning - your API call will cost $${estimatedCost} - proceed?`)) return;
         }
 
+        if(localStorage.getItem("secret") !== process.env.REACT_APP_SECRET) {
+            setError("You are not authenticated");
+            return;
+        }
+
         doRequest(prompt);
     }
 
@@ -104,18 +108,6 @@ const OpenAiPrompter = ({config}) => {
                 </div>
             </div>
         )
-    }
-
-    const temp = {
-        test: "Hello there",
-        things: {
-            field: 200,
-            items: [
-                "hi", "there", "yo"
-            ]
-        },
-        amazing: true,
-        age: 28
     }
 
     return (
