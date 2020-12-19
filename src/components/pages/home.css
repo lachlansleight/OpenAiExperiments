@@ -1,5 +1,23 @@
 .home {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.home > div {
+    width: calc(50% - 0.5em);
+}
+
+.home > div:first-child {
+    margin-right: 0.5em;
+}
+
+.home > div:last-child {
+    margin-left: 0.5em;
+}
+
+@media screen and (max-width: 640px) {
+    .home > div {
+        width: 100%;
+    }
 }

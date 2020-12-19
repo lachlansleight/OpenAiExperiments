@@ -38,14 +38,14 @@
 }
 
 .openAiPrompter input {
-    width: 60%;
+    width: 70%;
     border: 0;
     padding: 1em;
     background-color: var(--theme);
     font-size: 1.2em;
     font-weight: bold;
     border-radius: 5px;
-    margin-left: 20%;
+    margin-left: 15%;
 }
 
 .response {
